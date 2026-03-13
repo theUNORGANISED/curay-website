@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curay — The place where everything you love lives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
+
+:root {
+  --ink:    #1a1a18;
+  --mid:    #6b6b68;
+  --light:  #a8a8a4;
+  --rule:   #e4e2de;
+  --bg:     #faf9f7;
+  --warm:   #f3f0eb;
+  --panel:  #ede9e2;
+  --lime:   #CFFF71;
+  --card:   #eeebe5;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── ANNOUNCEMENT ─────────────────────── */
+.announce {
+  background: var(--ink);
+  color: rgba(255,255,255,0.55);
+  text-align: center;
+  padding: 11px 24px;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.announce span { color: var(--lime); }
+
+/* ── NAV ──────────────────────────────── */
+nav {
+  position: sticky; top:0; z-index:100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+  padding: 0 48px;
+  height: 56px;
+  display: flex; align-items:center; justify-content:space-between;
+}
+
+.nav-logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 20px;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex; gap:40px; align-items:center;
+  position: absolute; left:50%; transform:translateX(-50%);
+}
+
+.nav-link {
+  font-size: 12px; font-weight:400;
+  letter-spacing: 0.1em; text-transform:uppercase;
+  color: var(--mid);
+  text-decoration: none;
+  transition: color .2s;
+}
+.nav-link:hover { color: var(--ink); }
+
+.nav-right { display:flex; align-items:center; gap:32px; }
+
+.nav-cta {
+  font-size: 12px; font-weight:400;
+  letter-spacing: 0.1em; text-transform:uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 1px;
+  transition: color .2s, border-color .2s;
+}
+.nav-cta:hover { color: var(--mid); border-color: var(--mid); }
+
+/* ── HERO ─────────────────────────────── */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - 56px - 40px);
+}
+
+.hero-image-panel {
+  background: var(--panel);
+  position: relative;
+  overflow: hidden;
+  min-height: 600px;
+}
+
+/* Simulated editorial photo with CSS — warm lifestyle tones */
+.hero-photo-sim {
+  position: absolute; inset:0;
+  background:
+    radial-gradient(ellipse 70% 90% at 40% 55%, #d4ccc0 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 75% 30%, #c8bfb0 0%, transparent 60%),
+    linear-gradient(160deg, #e2dbd2 0%, #cec5b8 40%, #bdb3a8 100%);
+}
+
+/* Phone floating on hero photo */
+.hero-phone-float {
+  position: absolute;
+  bottom: 48px; right: 48px;
+  width: 160px;
+  background: var(--bg);
+  border-radius: 22px;
+  box-shadow: 0 24px 60px rgba(26,26,24,0.18), 0 4px 12px rgba(26,26,24,0.08);
+  overflow: hidden;
+  border: 4px solid var(--ink);
+}
+
+.hpf-notch { height:16px; background:var(--ink); display:flex; align-items:center; justify-content:center; }
+.hpf-pill { width:40px; height:5px; background:#0d0d0b; border-radius:5px; }
+.hpf-screen { padding:10px 10px 8px; }
+.hpf-title { font-size:9px; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--ink); margin-bottom:9px; }
+.hpf-grid { display:grid; grid-template-columns:1fr 1fr; gap:4px; margin-bottom:9px; }
+.hpf-card { background:var(--card); border-radius:8px; aspect-ratio:1; display:flex; align-items:center; justify-content:center; font-size:18px; }
+.hpf-tag { display:inline-block; background:var(--ink); color:var(--bg); padding:3px 8px; border-radius:100px; font-size:7px; font-weight:500; letter-spacing:.1em; text-transform:uppercase; margin-bottom:5px; }
+.hpf-nav { display:flex; justify-content:space-around; align-items:center; padding:7px 4px 2px; border-top:1px solid var(--rule); }
+.hpf-nav-i { font-size:6px; font-weight:500; text-transform:uppercase; letter-spacing:.06em; color:var(--light); text-align:center; }
+.hpf-nav-i.a { color:var(--ink); }
+.hpf-nav-add { background:var(--ink); width:18px; height:18px; border-radius:6px; display:flex; align-items:center; justify-content:center; color:var(--bg); font-size:11px; line-height:1; }
+
+.hero-photo-label {
+  position: absolute;
+  bottom: 48px; left: 48px;
+  font-size: 10px; font-weight:400;
+  letter-spacing: 0.12em; text-transform:uppercase;
+  color: rgba(26,26,24,0.45);
+}
+
+.hero-text-panel {
+  padding: 80px 72px 80px 80px;
+  display: flex; flex-direction:column; justify-content:center;
+  border-left: 1px solid var(--rule);
+}
+
+.hero-label {
+  font-size: 10px; font-weight:400;
+  letter-spacing: 0.22em; text-transform:uppercase;
+  color: var(--light);
+  margin-bottom: 32px;
+  opacity:0; animation: fadeUp .6s ease .1s forwards;
+}
+
+.hero-h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(46px, 4.5vw, 72px);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 32px;
+  opacity:0; animation: fadeUp .8s ease .2s forwards;
+}
+
+.hero-h1 em {
+  font-style: italic;
+  color: var(--mid);
+}
+
+.hero-body {
+  font-size: 15px; font-weight:300; line-height:1.75;
+  color: var(--mid);
+  max-width: 380px;
+  margin-bottom: 56px;
+  opacity:0; animation: fadeUp .8s ease .35s forwards;
+}
+
+.hero-actions {
+  display:flex; flex-direction:column; gap:0;
+  opacity:0; animation: fadeUp .8s ease .5s forwards;
+}
+
+.cta-primary {
+  display: inline-flex; align-items:center; justify-content:space-between;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 18px 28px;
+  font-size: 12px; font-weight:400;
+  letter-spacing: 0.12em; text-transform:uppercase;
+  text-decoration: none;
+  max-width: 280px;
+  transition: background .3s;
+  gap: 24px;
+}
+.cta-primary:hover { background: #2d2d2a; }
+.cta-primary .arrow { font-size:16px; transition: transform .3s; }
+.cta-primary:hover .arrow { transform: translateX(4px); }
+
+.cta-secondary {
+  display: inline-flex; align-items:center;
+  padding: 18px 28px;
+  font-size: 12px; font-weight:400;
+  letter-spacing: 0.12em; text-transform:uppercase;
+  color: var(--mid);
+  text-decoration: none;
+  border-top: 1px solid var(--rule);
+  max-width: 280px;
+  transition: color .2s;
+  gap: 12px;
+}
+.cta-secondary:hover { color: var(--ink); }
+
+/* ── STRIP ────────────────────────────── */
+.strip {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 20px 48px;
+  display: flex; align-items:center; justify-content:space-between;
+  gap: 48px;
+  overflow: hidden;
+}
+
+.strip-items {
+  display: flex; gap:0; flex:1;
+}
+
+.strip-item {
+  flex:1;
+  text-align:center;
+  font-size: 11px; font-weight:400;
+  letter-spacing: 0.14em; text-transform:uppercase;
+  color: var(--mid);
+  padding: 0 24px;
+  border-right: 1px solid var(--rule);
+}
+.strip-item:last-child { border-right:none; }
+.strip-item strong { display:block; font-size:13px; font-weight:500; color:var(--ink); margin-bottom:2px; letter-spacing:0.05em; text-transform:none; }
+
+/* ── PROBLEM — editorial two-col ──────── */
+.editorial-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--rule);
+}
+
+.eb-text {
+  padding: 100px 80px;
+  border-right: 1px solid var(--rule);
+  display: flex; flex-direction:column; justify-content:center;
+}
+
+.section-label {
+  font-size: 10px; font-weight:400;
+  letter-spacing: 0.22em; text-transform:uppercase;
+  color: var(--light);
+  margin-bottom: 28px;
+}
+
+.serif-h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(34px, 3vw, 52px);
+  font-weight: 400;
+  line-height: 1.12;
+  color: var(--ink);
+  margin-bottom: 28px;
+  letter-spacing: -0.01em;
+}
+
+.serif-h2 em { font-style:italic; }
+
+.prose {
+  font-size: 15px; font-weight:300; line-height:1.8;
+  color: var(--mid);
+  max-width: 420px;
+}
+
+.eb-visual {
+  background: var(--warm);
+  padding: 80px 64px;
+  display: flex; flex-direction:column; justify-content:center; gap:12px;
+}
+
+/* chaos items */
+.chaos-row {
+  display: flex; align-items:center; gap:14px;
+  padding: 16px 20px;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  transition: background .2s;
+}
+.chaos-row:nth-child(odd) { transform: rotate(-0.4deg); }
+.chaos-row:nth-child(even) { transform: rotate(0.3deg); }
+.chaos-row:hover { background: var(--panel); transform:rotate(0) translateY(-2px); }
+
+.chaos-emoji { font-size:18px; flex-shrink:0; }
+.chaos-info { flex:1; }
+.chaos-title { font-size:11px; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink); margin-bottom:2px; }
+.chaos-desc { font-size:12px; color:var(--light); }
+.chaos-x { font-size:14px; color:var(--rule); }
+
+/* ── HOW — numbered editorial ─────────── */
+.how-section {
+  padding: 100px 80px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.how-header {
+  display: grid; grid-template-columns: 1fr 2fr;
+  gap: 80px; align-items:end;
+  margin-bottom: 80px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.step-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 0;
+}
+
+.step-item {
+  padding: 48px 40px 48px 0;
+  border-right: 1px solid var(--rule);
+  padding-right: 40px;
+}
+.step-item:last-child { border-right:none; padding-right:0; padding-left:40px; }
+.step-item:nth-child(2) { padding-left:40px; }
+
+.step-n {
+  font-family: 'DM Serif Display', serif;
+  font-size: 48px; font-weight:400;
+  color: var(--rule);
+  line-height:1;
+  margin-bottom: 24px;
+}
+
+.step-title {
+  font-size: 17px; font-weight:400;
+  color: var(--ink);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.step-body {
+  font-size: 14px; font-weight:300; line-height:1.75;
+  color: var(--mid);
+}
+
+/* ── FEATURES — full bleed grid ───────── */
+.feat-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  border-top: 1px solid var(--rule);
+}
+
+.feat-cell {
+  padding: 72px 64px;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+  transition: background .3s;
+}
+.feat-cell:nth-child(even) { border-right:none; }
+.feat-cell:nth-child(3), .feat-cell:nth-child(4) { border-bottom:none; }
+.feat-cell:hover { background: var(--warm); }
+
+.feat-num {
+  font-size: 11px; font-weight:400;
+  letter-spacing: 0.18em;
+  color: var(--rule);
+  margin-bottom: 32px;
+  display:block;
+}
+
+.feat-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 26px; font-weight:400;
+  color: var(--ink);
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+
+.feat-title em { font-style:italic; }
+
+.feat-body {
+  font-size: 14px; font-weight:300; line-height:1.75;
+  color: var(--mid);
+  max-width: 340px;
+}
+
+/* ── APP PREVIEW — editorial full width ─ */
+.app-section {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.app-header {
+  padding: 80px 80px 0;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items:end;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 64px;
+}
+
+.screens-row {
+  display: flex; gap:0; overflow:hidden;
+}
+
+.screen-col {
+  flex:1;
+  border-right: 1px solid var(--rule);
+  padding: 48px 40px;
+}
+.screen-col:last-child { border-right:none; }
+
+.sc-label {
+  font-size: 10px; font-weight:400;
+  letter-spacing: 0.18em; text-transform:uppercase;
+  color: var(--light);
+  margin-bottom: 32px;
+  display:block;
+}
+
+/* mini phone in columns */
+.mini-ph {
+  width: 160px; margin:0 auto;
+  background: var(--bg);
+  border-radius: 24px;
+  border: 4px solid var(--ink);
+  overflow:hidden;
+  box-shadow: 0 16px 40px rgba(26,26,24,0.1);
+}
+.mph-notch { height:16px; background:var(--ink); display:flex; align-items:center; justify-content:center; }
+.mph-pill { width:40px; height:5px; background:#0d0d0b; border-radius:5px; }
+.mph-screen { padding:10px 9px 8px; min-height:280px; }
+.mph-title { font-size:9px; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--ink); margin-bottom:8px; }
+.mph-g { display:grid; grid-template-columns:1fr 1fr; gap:4px; margin-bottom:8px; }
+.mph-c { background:var(--card); border-radius:8px; aspect-ratio:1; display:flex; align-items:center; justify-content:center; font-size:16px; }
+.mph-tag-row { display:flex; gap:3px; flex-wrap:wrap; margin-bottom:8px; }
+.mph-tag { background:var(--ink); color:var(--bg); padding:2px 7px; border-radius:100px; font-size:6px; font-weight:500; letter-spacing:.1em; text-transform:uppercase; }
+.mph-tag.l { background:var(--panel); color:var(--mid); }
+.mph-lbl { font-size:6px; font-weight:500; letter-spacing:.15em; text-transform:uppercase; color:var(--light); margin-bottom:5px; }
+.mph-row { display:flex; align-items:center; gap:6px; padding:5px 0; border-bottom:1px solid var(--rule); }
+.mph-th { width:24px;height:24px;background:var(--card);border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:12px; }
+.mph-info { flex:1; }
+.mph-nm { font-size:7px; font-weight:500; color:var(--ink); }
+.mph-br { font-size:6px; color:var(--light); }
+.mph-pr { font-size:7px; font-weight:500; background:var(--panel); padding:2px 5px; border-radius:100px; color:var(--ink); }
+.mph-det-img { width:100%; height:80px; background:var(--card); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:32px; margin-bottom:8px; }
+.mph-nav { display:flex; justify-content:space-around; align-items:center; padding:6px; border-top:1px solid var(--rule); margin-top:6px; }
+.mph-nav-i { font-size:6px; font-weight:500; text-transform:uppercase; letter-spacing:.06em; color:var(--light); }
+.mph-nav-i.a { color:var(--ink); }
+.mph-nav-add { background:var(--ink); width:18px; height:18px; border-radius:6px; display:flex; align-items:center; justify-content:center; color:var(--bg); font-size:11px; line-height:1; }
+
+/* ── QUOTE — editorial full bleed ─────── */
+.quote-section {
+  background: var(--ink);
+  padding: 120px 80px;
+  text-align:center;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.quote-mark {
+  font-family: 'DM Serif Display', serif;
+  font-size: 60px; font-weight:400;
+  color: rgba(255,255,255,0.1);
+  line-height:0.7;
+  display:block;
+  margin-bottom: 32px;
+}
+
+.quote-text {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(26px, 3vw, 44px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.3;
+  color: rgba(255,255,255,0.85);
+  max-width: 800px;
+  margin: 0 auto 40px;
+  letter-spacing: -0.01em;
+}
+
+.quote-attr {
+  font-size: 11px; font-weight:400;
+  letter-spacing: 0.18em; text-transform:uppercase;
+  color: rgba(255,255,255,0.3);
+}
+
+/* ── USE CASES — tag cloud ────────────── */
+.tags-section {
+  padding: 100px 80px;
+  border-bottom: 1px solid var(--rule);
+  display: grid; grid-template-columns: 1fr 2fr;
+  gap: 80px; align-items:start;
+}
+
+.tags-cloud {
+  display: flex; flex-wrap:wrap; gap:10px;
+  padding-top: 4px;
+}
+
+.tag-item {
+  border: 1px solid var(--rule);
+  padding: 11px 20px;
+  font-size: 13px; font-weight:300;
+  color: var(--mid);
+  border-radius: 2px;
+  transition: all .25s;
+  cursor: default;
+}
+.tag-item:hover { border-color:var(--ink); color:var(--ink); background:var(--warm); }
+
+.tag-item.filled {
+  background: var(--ink); color:var(--bg); border-color:var(--ink);
+}
+.tag-item.filled:hover { background: #2d2d2a; }
+
+/* ── TESTIMONIALS ─────────────────────── */
+.testi-section {
+  border-bottom: 1px solid var(--rule);
+  display: grid; grid-template-columns: repeat(3,1fr);
+}
+
+.testi-card {
+  padding: 64px 52px;
+  border-right: 1px solid var(--rule);
+}
+.testi-card:last-child { border-right:none; }
+
+.testi-stars {
+  font-size: 12px; letter-spacing:3px;
+  color: var(--ink);
+  margin-bottom: 24px;
+  display:block;
+}
+
+.testi-text {
+  font-family: 'DM Serif Display', serif;
+  font-size: 18px; font-weight:400;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--ink);
+  margin-bottom: 32px;
+}
+
+.testi-name {
+  font-size: 11px; font-weight:500;
+  letter-spacing: 0.12em; text-transform:uppercase;
+  color: var(--ink);
+}
+.testi-role { font-size:11px; color:var(--light); margin-top:3px; }
+
+/* ── CTA SECTION ──────────────────────── */
+.cta-section {
+  display: grid; grid-template-columns: 1fr 1fr;
+  min-height: 560px;
+}
+
+.cta-left {
+  background: var(--panel);
+  position:relative; overflow:hidden;
+}
+
+.cta-left-bg {
+  position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse 80% 80% at 30% 60%, #cec5b8 0%, transparent 70%),
+    linear-gradient(140deg, #e0d9d0, #ccc3b8);
+}
+
+.cta-left-text {
+  position:absolute; bottom:48px; left:48px; right:48px;
+}
+
+.cta-left-text p {
+  font-family: 'DM Serif Display', serif;
+  font-size: 28px; font-weight:400; font-style:italic;
+  color: rgba(26,26,24,0.55);
+  line-height:1.3;
+}
+
+.cta-right {
+  padding: 80px 80px;
+  display: flex; flex-direction:column; justify-content:center;
+  background: var(--bg);
+  border-left: 1px solid var(--rule);
+}
+
+.cta-right .section-label { margin-bottom:20px; }
+
+.cta-h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(38px, 3.5vw, 56px);
+  font-weight:400; line-height:1.1;
+  letter-spacing:-0.01em;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+.cta-h2 em { font-style:italic; }
+
+.cta-sub {
+  font-size:15px; font-weight:300; line-height:1.75;
+  color:var(--mid);
+  max-width:380px;
+  margin-bottom: 48px;
+}
+
+.email-wrap {
+  max-width: 400px;
+}
+
+.email-row {
+  display:flex; border:1px solid var(--ink);
+  margin-bottom:12px;
+}
+
+.email-inp {
+  flex:1; padding:14px 18px;
+  background:transparent; border:none; outline:none;
+  font-family:'DM Sans',sans-serif;
+  font-size:14px; font-weight:300; color:var(--ink);
+}
+.email-inp::placeholder { color:var(--light); }
+
+.email-sub {
+  background:var(--ink); color:var(--bg);
+  border:none; padding:14px 22px;
+  font-family:'DM Sans',sans-serif;
+  font-size:11px; font-weight:400;
+  letter-spacing:.12em; text-transform:uppercase;
+  cursor:pointer;
+  transition: background .2s;
+  white-space:nowrap;
+}
+.email-sub:hover { background: #2d2d2a; }
+
+.form-note {
+  font-size:11px; color:var(--light);
+  letter-spacing:.05em;
+}
+
+/* ── FOOTER ───────────────────────────── */
+footer {
+  background: var(--bg);
+  border-top: 1px solid var(--rule);
+}
+
+.footer-top {
+  padding: 60px 80px;
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 60px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.footer-brand-name {
+  font-family:'DM Serif Display', serif;
+  font-size:22px; font-weight:400;
+  color:var(--ink);
+  margin-bottom:14px;
+  letter-spacing:0.02em;
+}
+
+.footer-brand-desc {
+  font-size:13px; font-weight:300; line-height:1.75;
+  color:var(--mid);
+  max-width:220px;
+}
+
+.footer-col-title {
+  font-size:10px; font-weight:500;
+  letter-spacing:.2em; text-transform:uppercase;
+  color:var(--ink);
+  margin-bottom:20px;
+}
+
+.footer-links { display:flex; flex-direction:column; gap:10px; }
+.footer-link { font-size:13px; font-weight:300; color:var(--mid); text-decoration:none; transition:color .2s; }
+.footer-link:hover { color:var(--ink); }
+
+.footer-bottom {
+  padding: 24px 80px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+
+.footer-copy { font-size:11px; color:var(--light); letter-spacing:.05em; }
+
+/* ── ANIMATIONS ───────────────────────── */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(16px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+.reveal { opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s ease; }
+.reveal.on { opacity:1; transform:translateY(0); }
+.d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s} .d4{transition-delay:.4s}
+
+/* ── MOBILE ───────────────────────────── */
+@media(max-width:960px){
+  nav { padding:0 24px; }
+  .nav-links { display:none; }
+  .hero { grid-template-columns:1fr; }
+  .hero-image-panel { min-height:320px; }
+  .hero-text-panel { padding:60px 28px; border-left:none; border-top:1px solid var(--rule); }
+  .editorial-block { grid-template-columns:1fr; }
+  .eb-text { padding:60px 28px; border-right:none; border-bottom:1px solid var(--rule); }
+  .eb-visual { padding:48px 28px; }
+  .how-section { padding:60px 28px; }
+  .how-header { grid-template-columns:1fr; gap:16px; }
+  .step-grid { grid-template-columns:1fr; }
+  .step-item { padding:40px 0 !important; border-right:none !important; border-bottom:1px solid var(--rule); }
+  .feat-grid { grid-template-columns:1fr; }
+  .feat-cell { border-right:none !important; }
+  .app-header { grid-template-columns:1fr; padding:48px 28px 0; gap:16px; }
+  .screens-row { flex-wrap:wrap; }
+  .screen-col { min-width:50%; }
+  .quote-section { padding:80px 28px; }
+  .tags-section { grid-template-columns:1fr; padding:60px 28px; gap:32px; }
+  .testi-section { grid-template-columns:1fr; }
+  .testi-card { border-right:none; border-bottom:1px solid var(--rule); }
+  .cta-section { grid-template-columns:1fr; }
+  .cta-left { min-height:280px; }
+  .cta-right { padding:60px 28px; border-left:none; border-top:1px solid var(--rule); }
+  .footer-top { grid-template-columns:1fr; padding:48px 28px; }
+  .footer-bottom { padding:20px 28px; flex-direction:column; gap:12px; text-align:center; }
+  .strip { flex-wrap:wrap; padding:20px 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCE -->
+<div class="announce">
+  <span>Curay</span> is launching soon — join the waitlist for early access
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Curay</a>
+  <div class="nav-links">
+    <a href="#how" class="nav-link">How it works</a>
+    <a href="#features" class="nav-link">Features</a>
+    <a href="#app" class="nav-link">The app</a>
+  </div>
+  <div class="nav-right">
+    <a href="#signup" class="nav-cta">Join waitlist →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-image-panel">
+    <div class="hero-photo-sim"></div>
+    <div class="hero-phone-float">
+      <div class="hpf-notch"><div class="hpf-pill"></div></div>
+      <div class="hpf-screen">
+        <p class="hpf-title">Dashboard</p>
+        <div class="hpf-grid">
+          <div class="hpf-card">🕶️</div>
+          <div class="hpf-card">👜</div>
+          <div class="hpf-card">🧴</div>
+          <div class="hpf-card">🩳</div>
+        </div>
+        <span class="hpf-tag">31 saved items</span>
+        <div class="hpf-nav">
+          <span class="hpf-nav-i a">Home</span>
+          <span class="hpf-nav-i">Lists</span>
+          <span class="hpf-nav-add">+</span>
+          <span class="hpf-nav-i">Account</span>
+        </div>
+      </div>
+    </div>
+    <span class="hero-photo-label">Your personal product library</span>
+  </div>
+
+  <div class="hero-text-panel">
+    <p class="hero-label">Curay — Save. Organize. Love.</p>
+    <h1 class="hero-h1">
+      The place where<br>
+      <em>everything you love</em><br>
+      lives.
+    </h1>
+    <p class="hero-body">
+      Stop losing the products you love. Curay gives you one beautiful, organized space to save, curate, and track the things that define your taste — all in one place.
+    </p>
+    <div class="hero-actions">
+      <a href="#signup" class="cta-primary">
+        <span>Get early access</span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="#how" class="cta-secondary">
+        <span>How it works</span>
+        <span>↓</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-items">
+    <div class="strip-item"><strong>Save</strong>From any website</div>
+    <div class="strip-item"><strong>Organize</strong>Into curated lists</div>
+    <div class="strip-item"><strong>Track</strong>Prices &amp; stock</div>
+    <div class="strip-item"><strong>Share</strong>Collections publicly</div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<div class="editorial-block" id="how">
+  <div class="eb-text reveal">
+    <p class="section-label">The problem</p>
+    <h2 class="serif-h2">
+      You save things<br>
+      <em>everywhere.</em><br>
+      Find them nowhere.
+    </h2>
+    <p class="prose">
+      Screenshots buried in your camera roll. Bookmarks you'll never open again. Pinterest boards overflowing with pins you can't search. Instagram saves you scroll through for ten minutes and still can't find that lamp.<br><br>
+      You love beautiful things. You just can't keep track of them. Curay fixes that.
+    </p>
+  </div>
+  <div class="eb-visual">
+    <div class="chaos-row reveal">
+      <span class="chaos-emoji">📸</span>
+      <div class="chaos-info">
+        <p class="chaos-title">Screenshots</p>
+        <p class="chaos-desc">Saved Jan 14... what was this again?</p>
+      </div>
+      <span class="chaos-x">✕</span>
+    </div>
+    <div class="chaos-row reveal d1">
+      <span class="chaos-emoji">🔖</span>
+      <div class="chaos-info">
+        <p class="chaos-title">Bookmarks</p>
+        <p class="chaos-desc">127 saved. Last opened: never.</p>
+      </div>
+      <span class="chaos-x">✕</span>
+    </div>
+    <div class="chaos-row reveal d2">
+      <span class="chaos-emoji">📌</span>
+      <div class="chaos-info">
+        <p class="chaos-title">Pinterest</p>
+        <p class="chaos-desc">Love everything. Can't find anything.</p>
+      </div>
+      <span class="chaos-x">✕</span>
+    </div>
+    <div class="chaos-row reveal d3">
+      <span class="chaos-emoji">📱</span>
+      <div class="chaos-info">
+        <p class="chaos-title">Instagram saved</p>
+        <p class="chaos-desc">That chair I loved is gone. Forever.</p>
+      </div>
+      <span class="chaos-x">✕</span>
+    </div>
+    <div class="chaos-row reveal d4">
+      <span class="chaos-emoji">🛒</span>
+      <div class="chaos-info">
+        <p class="chaos-title">Abandoned cart</p>
+        <p class="chaos-desc">Price went up. Moment passed.</p>
+      </div>
+      <span class="chaos-x">✕</span>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="how-section">
+  <div class="how-header">
+    <div>
+      <p class="section-label reveal">How it works</p>
+      <h2 class="serif-h2 reveal d1" style="margin-bottom:0;">Three<br>simple<br>steps.</h2>
+    </div>
+    <p class="prose reveal d2" style="max-width:500px; align-self:end;">
+      Curay isn't just a wishlist. It's a personal product library — structured around the way you actually discover, save, and buy the things you love.
+    </p>
+  </div>
+
+  <div class="step-grid">
+    <div class="step-item reveal">
+      <p class="step-n">01</p>
+      <h3 class="step-title">Save from any website</h3>
+      <p class="step-body">Browse any online store and save products in one tap. Fashion, furniture, beauty, tech — if it exists online, it belongs in Curay.</p>
+    </div>
+    <div class="step-item reveal d1">
+      <p class="step-n">02</p>
+      <h3 class="step-title">Build your collections</h3>
+      <p class="step-body">Create curated lists like "Summer Wardrobe," "Dream Apartment," or "Gift Ideas." Organize your product world the way your mind actually works.</p>
+    </div>
+    <div class="step-item reveal d2">
+      <p class="step-n">03</p>
+      <h3 class="step-title">Track, share, and act</h3>
+      <p class="step-body">Get notified when prices drop. Share collections with friends. Buy at exactly the right moment. Everything in one clean, considered app.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<div class="feat-grid" id="features">
+  <div class="feat-cell reveal">
+    <span class="feat-num">— 01</span>
+    <h3 class="feat-title">Save from <em>anywhere</em></h3>
+    <p class="feat-body">One-click saving from any online store. No more copy-pasting links or taking screenshots that vanish into your camera roll never to be seen again.</p>
+  </div>
+  <div class="feat-cell reveal d1">
+    <span class="feat-num">— 02</span>
+    <h3 class="feat-title">Curated <em>collections</em></h3>
+    <p class="feat-body">Build beautiful named lists by mood, season, room, or occasion. "Capsule Wardrobe." "Apartment Inspo." "Birthday gifts." Your product life, finally organized.</p>
+  </div>
+  <div class="feat-cell reveal d2">
+    <span class="feat-num">— 03</span>
+    <h3 class="feat-title"><em>Price</em> tracking</h3>
+    <p class="feat-body">Curay watches prices in the background. Get notified the moment something you love drops — and never miss the perfect moment to buy again.</p>
+  </div>
+  <div class="feat-cell reveal d3">
+    <span class="feat-num">— 04</span>
+    <h3 class="feat-title">Share your <em>taste</em></h3>
+    <p class="feat-body">Make collections public and share your curation with the world. Or keep everything beautifully private. Your library, completely on your terms.</p>
+  </div>
+</div>
+
+<!-- APP SCREENS -->
+<div class="app-section" id="app">
+  <div class="app-header">
+    <div>
+      <p class="section-label reveal">The app</p>
+      <h2 class="serif-h2 reveal d1" style="margin-bottom:0;">Minimal.<br>Considered.<br><em>Beautiful.</em></h2>
+    </div>
+    <p class="prose reveal d2" style="align-self:end;">
+      Curay is designed to feel as considered as the products inside it. Clean, fast, and organized around how you actually think about the things you love.
+    </p>
+  </div>
+
+  <div class="screens-row">
+    <!-- Dashboard -->
+    <div class="screen-col reveal">
+      <span class="sc-label">Dashboard</span>
+      <div class="mini-ph">
+        <div class="mph-notch"><div class="mph-pill"></div></div>
+        <div class="mph-screen">
+          <p class="mph-title">Dashboard</p>
+          <div class="mph-tag-row"><span class="mph-tag">All · 31</span><span class="mph-tag l">Wardrobe</span><span class="mph-tag l">Home</span></div>
+          <p class="mph-lbl">Latest finds</p>
+          <div class="mph-g"><div class="mph-c">🕶️</div><div class="mph-c">👜</div><div class="mph-c">🧴</div><div class="mph-c">🩳</div></div>
+          <div class="mph-nav"><span class="mph-nav-i a">Home</span><span class="mph-nav-i">Lists</span><span class="mph-nav-add">+</span><span class="mph-nav-i">Account</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lists -->
+    <div class="screen-col reveal d1">
+      <span class="sc-label">Lists</span>
+      <div class="mini-ph">
+        <div class="mph-notch"><div class="mph-pill"></div></div>
+        <div class="mph-screen">
+          <p class="mph-title">Lists</p>
+          <div class="mph-tag-row"><span class="mph-tag">My lists</span><span class="mph-tag l">Shared</span></div>
+          <p class="mph-lbl">All items · 31</p>
+          <div class="mph-g" style="margin-bottom:8px;"><div class="mph-c">🕶️</div><div class="mph-c">👜</div></div>
+          <p class="mph-lbl">Clothes · 1 item</p>
+          <div class="mph-g"><div class="mph-c">🕶️</div><div class="mph-c" style="opacity:.25;font-size:10px;color:var(--light);">—</div></div>
+          <div class="mph-nav"><span class="mph-nav-i">Home</span><span class="mph-nav-i a">Lists</span><span class="mph-nav-add">+</span><span class="mph-nav-i">Account</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- All items -->
+    <div class="screen-col reveal d2">
+      <span class="sc-label">All items</span>
+      <div class="mini-ph">
+        <div class="mph-notch"><div class="mph-pill"></div></div>
+        <div class="mph-screen">
+          <p class="mph-title">All items</p>
+          <p style="font-size:7px;color:var(--light);margin-bottom:8px;">31 items · 0 purchased</p>
+          <div class="mph-row"><div class="mph-th">🕶️</div><div class="mph-info"><p class="mph-nm">Ray-Ban RB4455</p><p class="mph-br">Ray-Ban ↗</p></div><span class="mph-pr">€167</span></div>
+          <div class="mph-row"><div class="mph-th">👜</div><div class="mph-info"><p class="mph-nm">Victorine Wallet</p><p class="mph-br">Louis Vuitton ↗</p></div></div>
+          <div class="mph-row"><div class="mph-th">🧴</div><div class="mph-info"><p class="mph-nm">Reverence Hand Wash</p><p class="mph-br">Aesop ↗</p></div><span class="mph-pr">€39</span></div>
+          <div class="mph-row"><div class="mph-th">🩳</div><div class="mph-info"><p class="mph-nm">Pulse Nylon Shorts</p><p class="mph-br">OACE ↗</p></div><span class="mph-pr">€55</span></div>
+          <div class="mph-nav"><span class="mph-nav-i">Home</span><span class="mph-nav-i a">Lists</span><span class="mph-nav-add">+</span><span class="mph-nav-i">Account</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Detail -->
+    <div class="screen-col reveal d3">
+      <span class="sc-label">Product detail</span>
+      <div class="mini-ph">
+        <div class="mph-notch"><div class="mph-pill"></div></div>
+        <div class="mph-screen">
+          <div class="mph-det-img">🕶️</div>
+          <p class="mph-nm" style="font-size:8px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px;">Ray-Ban RB4455</p>
+          <p style="font-size:8px;font-weight:500;color:var(--ink);margin-bottom:2px;">€167.00</p>
+          <p style="font-size:7px;color:var(--light);margin-bottom:10px;">Ray-Ban · Go to store ↗</p>
+          <p style="font-size:7px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:4px;">Note</p>
+          <p style="font-size:7px;color:var(--mid);background:var(--card);padding:5px 7px;border-radius:7px;">Size S — want in black</p>
+          <div class="mph-nav" style="margin-top:12px;"><span class="mph-nav-i">Home</span><span class="mph-nav-i a">Lists</span><span class="mph-nav-add">+</span><span class="mph-nav-i">Account</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PULL QUOTE -->
+<div class="quote-section">
+  <span class="quote-mark">"</span>
+  <p class="quote-text">I saw something I loved but I can't find it anymore.</p>
+  <p class="quote-attr">The last thing you'll ever say about a product. With Curay.</p>
+</div>
+
+<!-- USE CASES -->
+<div class="tags-section">
+  <div class="reveal">
+    <p class="section-label">What people save</p>
+    <h2 class="serif-h2">Curate every<br>part of<br><em>your life.</em></h2>
+  </div>
+  <div class="tags-cloud reveal d2">
+    <span class="tag-item filled">Summer wardrobe 👗</span>
+    <span class="tag-item">Apartment inspiration</span>
+    <span class="tag-item filled">Gift ideas 🎁</span>
+    <span class="tag-item">Capsule wardrobe</span>
+    <span class="tag-item">Skincare routine 🧴</span>
+    <span class="tag-item filled">Travel essentials</span>
+    <span class="tag-item">Dream kitchen 🏠</span>
+    <span class="tag-item">Things to buy later</span>
+    <span class="tag-item filled">Shoes I want 👟</span>
+    <span class="tag-item">Interior finds</span>
+    <span class="tag-item">Tech wishlist 💻</span>
+    <span class="tag-item filled">Workout gear</span>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="testi-section">
+  <div class="testi-card reveal">
+    <span class="testi-stars">★★★★★</span>
+    <p class="testi-text">"I used to have 400 screenshots in my camera roll. Now everything is in Curay. I actually found the chair I saved six months ago."</p>
+    <p class="testi-name">Sofia M.</p>
+    <p class="testi-role">Interior enthusiast · London</p>
+  </div>
+  <div class="testi-card reveal d1">
+    <span class="testi-stars">★★★★★</span>
+    <p class="testi-text">"It's like Pinterest but actually useful. My Summer Wardrobe collection is the most organized thing in my life right now."</p>
+    <p class="testi-name">Lena K.</p>
+    <p class="testi-role">Fashion lover · Copenhagen</p>
+  </div>
+  <div class="testi-card reveal d2">
+    <span class="testi-stars">★★★★★</span>
+    <p class="testi-text">"The price tracking alone is worth it. I saved €40 on my Ray-Bans just by waiting. Curay told me exactly when to buy."</p>
+    <p class="testi-name">Zara T.</p>
+    <p class="testi-role">Lifestyle creator · Amsterdam</p>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section" id="signup">
+  <div class="cta-left">
+    <div class="cta-left-bg"></div>
+    <div class="cta-left-text">
+      <p>The place where<br>everything you love lives.</p>
+    </div>
+  </div>
+  <div class="cta-right">
+    <p class="section-label">Early access</p>
+    <h2 class="cta-h2">
+      Stop losing<br>
+      the things<br>
+      you <em>love.</em>
+    </h2>
+    <p class="cta-sub">
+      Join thousands of people building their personal product library. Early access is completely free — no credit card needed.
+    </p>
+    <div class="email-wrap">
+      <form class="email-row" onsubmit="handleSubmit(event)">
+        <input type="email" class="email-inp" placeholder="your@email.com" required id="emailInput">
+        <button type="submit" class="email-sub">Join waitlist</button>
+      </form>
+      <p class="form-note" id="formNote">Free to join · No credit card · Launching soon</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <p class="footer-brand-name">Curay</p>
+      <p class="footer-brand-desc">Your personal product library. Save, organize, and love the things you discover — all in one place.</p>
+    </div>
+    <div>
+      <p class="footer-col-title">Product</p>
+      <div class="footer-links">
+        <a href="#how" class="footer-link">How it works</a>
+        <a href="#features" class="footer-link">Features</a>
+        <a href="#app" class="footer-link">The app</a>
+        <a href="#signup" class="footer-link">Join waitlist</a>
+      </div>
+    </div>
+    <div>
+      <p class="footer-col-title">Company</p>
+      <div class="footer-links">
+        <a href="#" class="footer-link">About</a>
+        <a href="#" class="footer-link">Instagram</a>
+        <a href="#" class="footer-link">Privacy Policy</a>
+        <a href="#" class="footer-link">Terms</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 Curay. All rights reserved.</p>
+    <p class="footer-copy">Made with intention.</p>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('on'); });
+  }, { threshold:0.08, rootMargin:'0px 0px -24px 0px' });
+  els.forEach(el => io.observe(el));
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
+    });
+  });
+
+  // Form
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('emailInput').value = '';
+    const n = document.getElementById('formNote');
+    n.textContent = '✓ You\'re on the list. We\'ll be in touch soon.';
+    n.style.color = 'var(--ink)';
+  }
+</script>
+</body>
+</html>
