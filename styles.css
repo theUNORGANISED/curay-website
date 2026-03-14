@@ -1,32 +1,12 @@
 /* ─────────────────────────────────────────
-   Curay — Placeholder Page
-   styles.css
+   Curay — styles.css
+   Placeholder / home page only.
+   Requires: /global.css
 ───────────────────────────────────────── */
 
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root {
-  --bg:     #f7f6f4;
-  --ink:    #111110;
-  --mid:    #888884;
-  --rule:   #e6e4e0;
-  --light:  #c4c2be;
-}
-
+/* Fullscreen lock — only on this page */
 html, body {
   height: 100%;
-}
-
-body {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 300;
-  -webkit-font-smoothing: antialiased;
   overflow: hidden;
 }
 
@@ -49,15 +29,9 @@ body {
   position: absolute;
   top: 36px;
   left: 48px;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--ink);
-  text-decoration: none;
 }
 
-/* ── SOCIAL LINKS (top-right) ─────────── */
+/* ── NAV LINKS (top-right) ────────────── */
 
 .nav-links {
   position: absolute;
@@ -89,7 +63,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0;
 }
 
 .headline {
@@ -204,27 +177,9 @@ body {
   color: var(--light);
 }
 
-/* ── ANIMATION ────────────────────────── */
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* ── MOBILE ───────────────────────────── */
 
 @media (max-width: 600px) {
-  .logo {
-    top: 28px;
-    left: 24px;
-  }
-
   .nav-links {
     top: 30px;
     right: 24px;
@@ -244,4 +199,3 @@ body {
     width: 280px;
   }
 }
-
