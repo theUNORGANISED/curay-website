@@ -1,119 +1,8 @@
 /* ─────────────────────────────────────────
-   Curay — Help Page
-   help/styles.css
+   Curay — help/styles.css
+   Help page only.
+   Requires: /global.css
 ───────────────────────────────────────── */
-
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root {
-  --bg:     #f7f6f4;
-  --ink:    #111110;
-  --mid:    #888884;
-  --rule:   #e6e4e0;
-  --light:  #c4c2be;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 300;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ── HEADER ───────────────────────────── */
-
-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: var(--bg);
-  border-bottom: 1px solid var(--rule);
-  padding: 0 48px;
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--ink);
-  text-decoration: none;
-}
-
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-}
-
-.header-link {
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--mid);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.header-link:hover {
-  color: var(--ink);
-}
-
-/* ── PAGE LAYOUT ──────────────────────── */
-
-.page-wrap {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 80px 48px 120px;
-}
-
-/* ── PAGE HEADER ──────────────────────── */
-
-.page-header {
-  margin-bottom: 72px;
-  padding-bottom: 48px;
-  border-bottom: 1px solid var(--rule);
-}
-
-.page-label {
-  font-size: 10px;
-  font-weight: 400;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--light);
-  margin-bottom: 20px;
-}
-
-.page-title {
-  font-size: clamp(32px, 4vw, 48px);
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-  line-height: 1.1;
-  margin-bottom: 16px;
-}
-
-.page-sub {
-  font-size: 15px;
-  font-weight: 300;
-  line-height: 1.7;
-  color: var(--mid);
-  max-width: 480px;
-}
 
 /* ── ACCORDION ────────────────────────── */
 
@@ -129,7 +18,6 @@ header {
   border-top: 1px solid var(--rule);
 }
 
-/* The clickable question row */
 .faq-trigger {
   width: 100%;
   background: none;
@@ -174,7 +62,6 @@ header {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* horizontal bar */
 .faq-icon::before {
   width: 14px;
   height: 1px;
@@ -183,7 +70,6 @@ header {
   transform: translate(-50%, -50%);
 }
 
-/* vertical bar */
 .faq-icon::after {
   width: 1px;
   height: 14px;
@@ -192,7 +78,6 @@ header {
   transform: translate(-50%, -50%);
 }
 
-/* When open — vertical bar fades out (becomes minus) */
 .faq-item.open .faq-icon::after {
   opacity: 0;
   transform: translate(-50%, -50%) rotate(90deg);
@@ -202,7 +87,7 @@ header {
   background: var(--ink);
 }
 
-/* The answer panel */
+/* Answer panel */
 .faq-body {
   display: grid;
   grid-template-rows: 0fr;
@@ -221,7 +106,7 @@ header {
   padding: 0 0 32px;
 }
 
-/* ── CONTENT TYPOGRAPHY ───────────────── */
+/* ── FAQ CONTENT TYPOGRAPHY ───────────── */
 
 .faq-content p {
   font-size: 14px;
@@ -240,13 +125,14 @@ header {
   color: var(--ink);
 }
 
-/* Numbered steps */
 .faq-content ol {
+  counter-reset: step-counter;
   list-style: none;
   margin: 12px 0 20px;
 }
 
 .faq-content ol li {
+  counter-increment: step-counter;
   font-size: 14px;
   font-weight: 300;
   line-height: 1.75;
@@ -254,18 +140,13 @@ header {
   padding-left: 28px;
   position: relative;
   margin-bottom: 8px;
-  counter-increment: step-counter;
-}
-
-.faq-content ol {
-  counter-reset: step-counter;
 }
 
 .faq-content ol li::before {
   content: counter(step-counter);
   position: absolute;
   left: 0;
-  top: 0;
+  top: 2px;
   font-size: 11px;
   font-weight: 500;
   color: var(--light);
@@ -276,12 +157,10 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 2px;
   line-height: 1;
   padding-top: 1px;
 }
 
-/* Bullet list */
 .faq-content ul {
   list-style: none;
   margin: 12px 0 20px;
@@ -305,7 +184,6 @@ header {
   font-size: 12px;
 }
 
-/* Sub-heading inside answer */
 .faq-content .option-label {
   font-size: 11px;
   font-weight: 500;
@@ -319,7 +197,6 @@ header {
   margin-top: 0;
 }
 
-/* Tip / note block */
 .faq-tip {
   background: var(--rule);
   border-radius: 2px;
@@ -333,7 +210,7 @@ header {
   margin-bottom: 0;
 }
 
-/* ── CONTACT BLOCK ────────────────────── */
+/* ── CONTACT SECTION ──────────────────── */
 
 .contact-section {
   margin-top: 72px;
@@ -373,61 +250,10 @@ header {
   color: var(--mid);
 }
 
-/* ── FOOTER ───────────────────────────── */
-
-footer {
-  border-top: 1px solid var(--rule);
-  padding: 28px 48px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.footer-copy {
-  font-size: 11px;
-  font-weight: 300;
-  letter-spacing: 0.06em;
-  color: var(--light);
-}
-
-.footer-links {
-  display: flex;
-  gap: 24px;
-}
-
-.footer-link {
-  font-size: 11px;
-  font-weight: 300;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--light);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.footer-link:hover {
-  color: var(--ink);
-}
-
 /* ── MOBILE ───────────────────────────── */
 
 @media (max-width: 640px) {
-  header {
-    padding: 0 24px;
-  }
-
-  .page-wrap {
-    padding: 56px 24px 80px;
-  }
-
   .faq-trigger {
     padding: 24px 0;
-  }
-
-  footer {
-    padding: 24px;
-    flex-direction: column;
-    gap: 16px;
-    align-items: flex-start;
   }
 }
