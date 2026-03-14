@@ -119,7 +119,7 @@ footer {
 /* ── SHARED PAGE LAYOUT ───────────────── */
 
 .page-wrap {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 80px 48px 120px;
 }
