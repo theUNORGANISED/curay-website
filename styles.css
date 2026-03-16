@@ -82,7 +82,7 @@ html, body {
   font-weight: 500;
    font-family: var(--font-display);
   letter-spacing: 0.08em;
-
+font-style: italic;
   color: var(--ink);
   line-height: 1;
   margin-bottom: 16px;
