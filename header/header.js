@@ -1,5 +1,4 @@
 // Curay — header/header.js
-// Lives inside the header/ folder.
 // Reference in pages as: <script src="/header/header.js"></script>
 
 fetch('/header/header.html')
@@ -29,7 +28,6 @@ fetch('/header/header.html')
         burger.setAttribute('aria-expanded', isOpen);
       });
 
-      // Close menu when a link is tapped
       mobileMenu.querySelectorAll('.mobile-link').forEach(link => {
         link.addEventListener('click', () => {
           burger.classList.remove('open');
@@ -38,7 +36,6 @@ fetch('/header/header.html')
         });
       });
 
-      // Close menu when tapping outside
       document.addEventListener('click', e => {
         if (!burger.contains(e.target) && !mobileMenu.contains(e.target)) {
           burger.classList.remove('open');
