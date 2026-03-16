@@ -15,11 +15,16 @@
 /* ── TOKENS ───────────────────────────── */
 
 :root {
+  /* Colours */
   --bg:     #f7f6f4;
   --ink:    #111110;
   --mid:    #888884;
   --rule:   #e6e4e0;
   --light:  #c4c2be;
+
+  /* Fonts */
+  --font-body:    'DM Sans', sans-serif;
+  --font-display: 'Newsreader', serif;
 }
 
 /* ── BASE ─────────────────────────────── */
@@ -31,7 +36,7 @@ html {
 body {
   background: var(--bg);
   color: var(--ink);
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
 }
@@ -52,6 +57,7 @@ header {
 }
 
 .logo {
+  font-family: var(--font-body);
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.22em;
@@ -67,6 +73,7 @@ header {
 }
 
 .header-link {
+  font-family: var(--font-body);
   font-size: 11px;
   font-weight: 400;
   letter-spacing: 0.14em;
@@ -91,6 +98,7 @@ footer {
 }
 
 .footer-copy {
+  font-family: var(--font-body);
   font-size: 11px;
   font-weight: 300;
   letter-spacing: 0.06em;
@@ -103,6 +111,7 @@ footer {
 }
 
 .footer-link {
+  font-family: var(--font-body);
   font-size: 11px;
   font-weight: 300;
   letter-spacing: 0.1em;
@@ -133,6 +142,7 @@ footer {
 }
 
 .page-label {
+  font-family: var(--font-body);
   font-size: 10px;
   font-weight: 400;
   letter-spacing: 0.24em;
@@ -142,8 +152,9 @@ footer {
 }
 
 .page-title {
+  font-family: var(--font-display);
   font-size: clamp(32px, 4vw, 48px);
-  font-weight: 400;
+  font-weight: 300;
   letter-spacing: -0.02em;
   color: var(--ink);
   line-height: 1.1;
@@ -152,6 +163,7 @@ footer {
 
 .page-meta,
 .page-sub {
+  font-family: var(--font-body);
   font-size: 14px;
   font-weight: 300;
   line-height: 1.75;
@@ -173,14 +185,16 @@ footer {
 }
 
 .content h2 {
-  font-size: 17px;
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 300;
   letter-spacing: -0.01em;
   color: var(--ink);
   margin-bottom: 20px;
 }
 
 .content h3 {
+  font-family: var(--font-body);
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -195,6 +209,7 @@ footer {
 }
 
 .content p {
+  font-family: var(--font-body);
   font-size: 14px;
   font-weight: 300;
   line-height: 1.85;
@@ -222,6 +237,7 @@ footer {
 }
 
 .content ul li {
+  font-family: var(--font-body);
   font-size: 14px;
   font-weight: 300;
   line-height: 1.85;
@@ -249,6 +265,7 @@ footer {
 }
 
 .contact-block p {
+  font-family: var(--font-body);
   margin-bottom: 4px;
   font-size: 13px;
   line-height: 1.7;
