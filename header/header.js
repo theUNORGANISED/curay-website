@@ -1,8 +1,8 @@
-// Curay — header.js
-// Loads header.html into every page that includes this script.
-// Place header.html and header.js in the root of your repo.
+// Curay — header/header.js
+// Lives inside the header/ folder.
+// Reference in pages as: <script src="/header/header.js"></script>
 
-fetch('/header.html')
+fetch('/header/header.html')
   .then(res => res.text())
   .then(html => {
     document.getElementById('site-header').innerHTML = html;
