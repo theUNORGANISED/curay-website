@@ -25,7 +25,7 @@
  // ── Google Fonts ──────────────────────────
 const fonts = document.createElement('link');
 fonts.rel  = 'stylesheet';
-fonts.href = 'https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Newsreader:ital,opsz,wght@0,6..72,300;1,6..72,300&display=swap';
+fonts.href = 'https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500';
 document.head.appendChild(fonts);
 
   // ── Global CSS ────────────────────────────
