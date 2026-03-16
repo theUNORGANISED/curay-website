@@ -69,7 +69,7 @@ html, body {
   font-size: clamp(22px, 3.6vw, 48px);
   font-weight: 500;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
+
   color: var(--ink);
   line-height: 1;
   margin-bottom: 16px;
@@ -82,7 +82,7 @@ html, body {
   font-weight: 500;
    font-family: var(--font-display);
   letter-spacing: 0.08em;
-  text-transform: uppercase;
+
   color: var(--ink);
   line-height: 1;
   margin-bottom: 16px;
